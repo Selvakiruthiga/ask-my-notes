@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask My Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="masthead-mark">✒</div>
+    <div>
+      <h1>Ask My Notes</h1>
+      <p class="tagline">Your notes, answered instantly — hybrid RAG study companion</p>
+    </div>
+  </header>
+
+  <section class="upload-card">
+    <div class="upload-row">
+      <input type="file" id="fileInput" accept=".pdf">
+      <button class="btn btn-primary" onclick="uploadFile()">Upload notes</button>
+      <span id="uploadStatus" class="upload-status"></span>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" id="tabAskBtn" onclick="switchTab('ask')">Ask</button>
+    <button class="tab" id="tabQuizBtn" onclick="switchTab('quiz')">Exam Mode</button>
+  </nav>
+
+  <main class="sheet">
+
+    <section id="askPanel" class="panel">
+      <div class="ask-row">
+        <input type="text" id="questionInput" placeholder="Ask a question about your notes…">
+        <button class="btn btn-primary" onclick="askQuestion()">Ask</button>
+      </div>
+
+      <div id="answerArea"></div>
+    </section>
+
+    <section id="quizPanel" class="panel hidden">
+      <div class="quiz-intro">
+        <p>Generate practice questions straight from your uploaded notes.</p>
+        <button class="btn btn-primary" onclick="generateQuiz()">Generate 5 questions</button>
+      </div>
+      <div id="quizArea"></div>
+    </section>
+
+  </main>
+
+  <button class="btn btn-reset" onclick="resetStore()">Reset all notes</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

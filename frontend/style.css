@@ -1,0 +1,353 @@
+:root {
+  --ink: #1c2b45;
+  --ink-soft: #4a5570;
+  --parchment: #f7f2e7;
+  --paper: #fffdf8;
+  --rule: #e4dcc8;
+  --brass: #b8912f;
+  --brass-dark: #8f6e1f;
+  --sage: #4b7a65;
+  --rust: #c1443b;
+  --shadow: rgba(28, 43, 69, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  background-image:
+    linear-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 100% 34px;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.page {
+  width: 100%;
+  max-width: 620px;
+}
+
+/* Header */
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.masthead-mark {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--parchment);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotate(-4deg);
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+/* Upload card */
+.upload-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.upload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.upload-status {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* Buttons */
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--parchment);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 14px var(--shadow);
+}
+
+.btn-reset {
+  background: transparent;
+  color: var(--rust);
+  border: 1.5px solid var(--rust);
+  width: 100%;
+  margin-top: 22px;
+}
+
+.btn-reset:hover {
+  background: var(--rust);
+  color: var(--paper);
+}
+
+/* Tabs (binder-tab style) */
+.tabs {
+  display: flex;
+  gap: 6px;
+  padding-left: 8px;
+}
+
+.tab {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  background: #ece4d0;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 22px;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+}
+
+.tab.active {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Sheet (main content) */
+.sheet {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0 12px 12px 12px;
+  padding: 24px;
+  box-shadow: 0 4px 18px var(--shadow);
+  min-height: 220px;
+}
+
+.panel.hidden {
+  display: none;
+}
+
+.ask-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ask-row input[type="text"] {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  background: var(--parchment);
+}
+
+.ask-row input[type="text"]:focus {
+  outline: 2px solid var(--brass);
+  outline-offset: 1px;
+}
+
+/* Answer card */
+.answer-card {
+  margin-top: 20px;
+  padding: 18px 20px;
+  background: var(--parchment);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.answer-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.stamp {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2.5px solid var(--brass);
+  color: var(--brass-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'IBM Plex Mono', monospace;
+  transform: rotate(-6deg);
+  flex-shrink: 0;
+  background: #fbf6e8;
+}
+
+.stamp.low {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+.stamp-num {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.stamp-label {
+  font-size: 7.5px;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.answer-text {
+  font-size: 15px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.sources-toggle {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.sources-list {
+  margin-top: 10px;
+  display: none;
+}
+
+.sources-list.open {
+  display: block;
+}
+
+.source-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  background: #efe8d6;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  color: var(--ink-soft);
+}
+
+/* Quiz */
+.quiz-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.quiz-intro p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.quiz-card {
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: var(--parchment);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+}
+
+.quiz-question {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  padding: 9px 12px;
+  margin-bottom: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.quiz-option:hover {
+  border-color: var(--brass);
+}
+
+.quiz-option.correct {
+  background: #e5efe9;
+  border-color: var(--sage);
+  color: var(--sage);
+  font-weight: 600;
+}
+
+.quiz-option.incorrect {
+  background: #f6e4e2;
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+.loading-text {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 24px; }
+  .ask-row { flex-direction: column; }
+  .ask-row button { width: 100%; }
+}
