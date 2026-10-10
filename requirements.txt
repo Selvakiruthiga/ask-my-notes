@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+fastembed
+numpy
+rank_bm25
+pypdf
+google-generativeai
+python-dotenv
