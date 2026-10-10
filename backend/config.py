@@ -14,7 +14,8 @@ if not GEMINI_API_KEY:
     )
 
 # Embedding model name (used later in retriever.py)
-EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
+EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+MODEL_CACHE_DIR = os.getenv("MODEL_CACHE_DIR", "./models")
 
 # Chunking settings (used in document_processor.py)
 CHUNK_SIZE = 60      # words per chunk
@@ -26,4 +27,4 @@ TOP_K_SEMANTIC = 10
 FINAL_TOP_K = 5        # how many chunks get sent to the LLM
 
 # ChromaDB storage path (used in vector_store.py)
-CHROMA_DB_PATH = "C:/ChromaData/ask-my-notes"
+CHROMA_DB_PATH = os.getenv("STORE_PATH", "./data/store")
